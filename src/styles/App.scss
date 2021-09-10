@@ -2,14 +2,7 @@
 @import "variables";
 @import "typography";
 @import "header";
-
-@mixin shadow {
-  box-shadow: 0 1px 1px rgba(0,0,0,0.05),
-            0 2px 2px rgba(0,0,0,0.05),
-            0 4px 4px rgba(0,0,0,0.05),
-            0 8px 8px rgba(0,0,0,0.05),
-            0 16px 16px rgba(0,0,0,0.05);
-}
+@import "feed";
 
 .wrapper {
   padding: 15px;
@@ -52,22 +45,5 @@ form {
         padding: 0px 16px;
       }
     }
-  }
-}
-
-.image-listing {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-
-  .image-listing--entry {
-    padding: 15px;
-    border-radius: 4px;
-    @include shadow;
-  }
-
-  .avatar {
-    max-width: 100px;
   }
 }

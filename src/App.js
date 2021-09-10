@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Form from './components/Form';
+import Card from './components/Card';
 import './styles/App.scss';
 
 const App = () => {
@@ -34,13 +35,12 @@ const App = () => {
         {
           formIsVisible ? <Form /> : null
         }
-        <div className="image-listing">
+        <div className="feed">
           {
             images && images.map(img => (
-              <div className="image-listing--entry" key={img.id} >
-                <img src={img.url} alt=''/>
-                <img src={img.user.profile_image} className="avatar" alt=''/>
-              </div>
+              <Card
+                img={img}
+              />
             ))
           }
         </div>
