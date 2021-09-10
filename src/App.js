@@ -30,8 +30,8 @@ const App = () => {
       </header>
 
       <main className="wrapper">
-        <h1>Superhero's favourite cars</h1>
-        <p><button onClick={() => setFormIsVisible(true)}>Show the form</button></p>
+        <h1>What we've been up to recently</h1>
+        <p><button className="btn primary" onClick={() => setFormIsVisible(true)}>Tell me about yourself</button></p>
         {
           formIsVisible ? <Form /> : null
         }

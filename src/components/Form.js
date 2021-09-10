@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 const Form = () => {
@@ -9,12 +8,13 @@ const Form = () => {
     email: "",
     dob: "",
     favColour: "",
-    salary: ""
+    salary: "60000"
   })
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+    console.log(value);
     setFormValue({
       ...formValue,
       [name]: value
@@ -73,7 +73,15 @@ const Form = () => {
           </li>
           <li>
           <label htmlFor="salary">Salary
-            <Slider />
+            <span>£{formValue.salary}</span>
+            <input
+              type="range"
+              name="salary"
+              min="30000"
+              max="100000"
+              value={formValue.salary}
+              onChange={handleChange}
+            />
           </label>
           </li>
         </ul>
