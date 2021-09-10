@@ -1,0 +1,73 @@
+@import "reset";
+@import "variables";
+@import "typography";
+@import "header";
+
+@mixin shadow {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05),
+            0 2px 2px rgba(0,0,0,0.05),
+            0 4px 4px rgba(0,0,0,0.05),
+            0 8px 8px rgba(0,0,0,0.05),
+            0 16px 16px rgba(0,0,0,0.05);
+}
+
+.wrapper {
+  padding: 15px;
+}
+
+img {
+  max-width: 100%;
+}
+
+form {
+  max-width: 350px;
+  padding: 15px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      label {
+        display: block;
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+      input {
+        display: block;
+        width: 100%;
+        appearance: none;
+        background-color: var(--generic-bg-color);
+        color: var(--generic-text-color);
+        font-size: 16px;
+        font-weight: 400;
+        height: 48px;
+        text-align: left;
+        width: 100%;
+        border: 2px solid var(--generic-border-color);
+        border-radius: 4px;
+        margin: 0px;
+        outline: none;
+        padding: 0px 16px;
+      }
+    }
+  }
+}
+
+.image-listing {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+
+  .image-listing--entry {
+    padding: 15px;
+    border-radius: 4px;
+    @include shadow;
+  }
+
+  .avatar {
+    max-width: 100px;
+  }
+}
