@@ -2,7 +2,7 @@ import Profile from './molecules/Profile'
 
 const Modal = ({entry, closeModal}) => {
   return (
-    <div className="modal">
+    <div className="modal" data-testid="modal">
       <div className="modal__backdrop" onClick={closeModal}>
         <div className="modal__container">
           <div className="modal__close" onClick={closeModal}>Close</div>
