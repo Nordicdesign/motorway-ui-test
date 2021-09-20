@@ -11,6 +11,16 @@
   padding: 15px;
 }
 
+.intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media all and (max-width: 730px) {
+    display: block;
+  }
+}
+
 img {
   max-width: 100%;
 }

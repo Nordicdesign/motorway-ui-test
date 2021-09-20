@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Form = () => {
-
+  const [ formError, setFormError] = useState(false)
   const [formValue, setFormValue] = useState({
     name: "",
     email: "",
@@ -13,17 +13,36 @@ const Form = () => {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(value);
     setFormValue({
       ...formValue,
       [name]: value
     })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("// Form sent");
-    console.log("Form data:", formValue);
+  const validateForm = async () => {
+    // reset form error state before checking
+    setFormError(false)
+    let anyEmptyField = false
+    for (let value in formValue) {
+      if (formValue[value] === "") {
+        anyEmptyField = true
+      }
+    }
+    anyEmptyField && setFormError(true)
+  }
+
+  const validateField = (e) => {
+    (e.target.value === "") ? setFormError(true) : setFormError(false)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    // if no errors are present, sent the form
+    validateForm().then(
+      !formError && console.log("// Form sent:", formValue)
+    )
+
+
   }
 
   return (
@@ -37,6 +56,7 @@ const Form = () => {
                 name="name"
                 value={formValue.name}
                 onChange={handleChange}
+                onBlur={validateField}
               />
             </label>
           </li>
@@ -47,6 +67,7 @@ const Form = () => {
               name="email"
               value={formValue.email}
               onChange={handleChange}
+              onBlur={validateField}
             />
           </label>
           </li>
@@ -57,6 +78,7 @@ const Form = () => {
               name="dob"
               value={formValue.dob}
               onChange={handleChange}
+              onBlur={validateField}
             />
           </label>
           </li>
@@ -67,6 +89,7 @@ const Form = () => {
               name="favColour"
               value={formValue.favColour}
               onChange={handleChange}
+              onBlur={validateField}
             />
           </label>
           </li>
@@ -84,7 +107,12 @@ const Form = () => {
           </label>
           </li>
         </ul>
-        <input type="submit" value="Send form" />
+        { formError && <p className="form__error">All fields are required.</p> }
+        <input
+          type="submit"
+          value="Send form"
+          disabled={formError}
+        />
       </form>
     </div>
   )

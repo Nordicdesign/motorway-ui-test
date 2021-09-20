@@ -18,7 +18,7 @@
   border-image: initial;
   border-radius: 4px;
   outline: none;
-  padding: 4px 8px;
+  padding: 4px 16px;
   transition: background-color 0.1s linear 0s;
 
   &.primary {
@@ -29,12 +29,29 @@
     &:focus {
       background-color: darken($generic-background, 20);
     }
+
+    &:active {
+      transform: translateY(3px);
+    }
   }
 }
 
 form {
   max-width: 350px;
   padding: 15px;
+  margin: 0 auto;
+
+  @media all and (max-width: 730px) {
+    margin: 0;
+  }
+
+  .form__error {
+    background: salmon;
+    border: 1px solid tomato;
+    padding: 4px;
+    border-radius: 4px;
+
+  }
 
   input[type="submit"] {
     appearance: none;
@@ -63,6 +80,10 @@ form {
     &:hover,
     &:focus {
       background-color: darken($generic-background, 20);
+    }
+
+    &:disabled {
+      background-color: grey !important;
     }
   }
 

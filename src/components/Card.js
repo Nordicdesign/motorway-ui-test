@@ -1,8 +1,6 @@
-import React from 'react';
 import Profile from './molecules/Profile'
 
 const Card = ({img, viewDetailedEntry}) => {
-  console.log(img);
   return(
     <div className="feed-entry" key={img.id}>
       <div className="feed-entry__superhero">
