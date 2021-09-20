@@ -1,5 +1,6 @@
 {
   "name": "fe-test",
+  "author": "Alex Lillo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

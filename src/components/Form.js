@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'rc-slider/assets/index.css';
 
 const Form = () => {
 
